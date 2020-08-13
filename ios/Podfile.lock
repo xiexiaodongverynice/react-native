@@ -1,0 +1,201 @@
+PODS:
+  - boost-for-react-native (1.63.0)
+  - Bugly (2.5.0)
+  - CodePush (5.4.2):
+    - CodePush/Base64 (= 5.4.2)
+    - CodePush/Core (= 5.4.2)
+    - CodePush/JWT (= 5.4.2)
+    - CodePush/SSZipArchive (= 5.4.2)
+    - React
+  - CodePush/Base64 (5.4.2):
+    - React
+  - CodePush/Core (5.4.2):
+    - React
+  - CodePush/JWT (5.4.2):
+    - React
+  - CodePush/SSZipArchive (5.4.2):
+    - React
+  - DoubleConversion (1.1.6)
+  - Folly (2016.10.31.00):
+    - boost-for-react-native
+    - DoubleConversion
+    - glog
+  - glog (0.3.5)
+  - JCoreRN (1.2.6):
+    - React
+  - JPushRN (2.2.4):
+    - React
+  - mobile-ffmpeg-min (4.2.2.LTS)
+  - React (0.57.4-fc-0.0.1):
+    - React/Core (= 0.57.4-fc-0.0.1)
+  - react-native-baidu-map (1.0.20):
+    - React
+  - react-native-ffmpeg/min-lts (0.3.6):
+    - mobile-ffmpeg-min (= 4.2.2.LTS)
+    - React
+  - react-native-image-picker (0.28.1-fc-0.0.4):
+    - React
+  - react-native-orientation (3.1.3):
+    - React
+  - react-native-video (3.2.1):
+    - React
+  - React/Core (0.57.4-fc-0.0.1):
+    - yoga (= 0.57.4-fc-0.0.1.React)
+  - React/CxxBridge (0.57.4-fc-0.0.1):
+    - Folly (= 2016.10.31.00)
+    - React/Core
+    - React/cxxreact
+  - React/cxxreact (0.57.4-fc-0.0.1):
+    - boost-for-react-native (= 1.63.0)
+    - Folly (= 2016.10.31.00)
+    - React/jschelpers
+    - React/jsinspector
+  - React/DevSupport (0.57.4-fc-0.0.1):
+    - React/Core
+    - React/RCTWebSocket
+  - React/fishhook (0.57.4-fc-0.0.1)
+  - React/jschelpers (0.57.4-fc-0.0.1):
+    - Folly (= 2016.10.31.00)
+    - React/PrivateDatabase
+  - React/jsinspector (0.57.4-fc-0.0.1)
+  - React/PrivateDatabase (0.57.4-fc-0.0.1)
+  - React/RCTActionSheet (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTAnimation (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTBlob (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTCameraRoll (0.57.4-fc-0.0.1):
+    - React/Core
+    - React/RCTImage
+  - React/RCTGeolocation (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTImage (0.57.4-fc-0.0.1):
+    - React/Core
+    - React/RCTNetwork
+  - React/RCTLinkingIOS (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTNetwork (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTSettings (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTText (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTVibration (0.57.4-fc-0.0.1):
+    - React/Core
+  - React/RCTWebSocket (0.57.4-fc-0.0.1):
+    - React/Core
+    - React/fishhook
+    - React/RCTBlob
+  - RNDeviceInfo (1.8.0):
+    - React
+  - RNFS (2.9.11):
+    - React
+  - RNI18n (2.0.15):
+    - React
+  - RNReactNativeDocViewer (1.0.0):
+    - React
+  - yoga (0.57.4-fc-0.0.1.React)
+
+DEPENDENCIES:
+  - boost-for-react-native
+  - Bugly
+  - CodePush (from `../node_modules/react-native-code-push`)
+  - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
+  - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
+  - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
+  - JCoreRN (from `../node_modules/jcore-react-native`)
+  - JPushRN (from `../node_modules/jpush-react-native`)
+  - react-native-baidu-map (from `../node_modules/react-native-baidu-map`)
+  - react-native-ffmpeg/min-lts (from `../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec`)
+  - react-native-image-picker (from `../node_modules/react-native-image-picker`)
+  - react-native-orientation (from `../node_modules/react-native-orientation`)
+  - react-native-video (from `../node_modules/react-native-video`)
+  - React/Core (from `../node_modules/react-native`)
+  - React/CxxBridge (from `../node_modules/react-native`)
+  - React/DevSupport (from `../node_modules/react-native`)
+  - React/RCTActionSheet (from `../node_modules/react-native`)
+  - React/RCTAnimation (from `../node_modules/react-native`)
+  - React/RCTBlob (from `../node_modules/react-native`)
+  - React/RCTCameraRoll (from `../node_modules/react-native`)
+  - React/RCTGeolocation (from `../node_modules/react-native`)
+  - React/RCTImage (from `../node_modules/react-native`)
+  - React/RCTLinkingIOS (from `../node_modules/react-native`)
+  - React/RCTNetwork (from `../node_modules/react-native`)
+  - React/RCTSettings (from `../node_modules/react-native`)
+  - React/RCTText (from `../node_modules/react-native`)
+  - React/RCTVibration (from `../node_modules/react-native`)
+  - React/RCTWebSocket (from `../node_modules/react-native`)
+  - RNDeviceInfo (from `../node_modules/react-native-device-info`)
+  - RNFS (from `../node_modules/react-native-fs`)
+  - RNI18n (from `../node_modules/react-native-i18n`)
+  - RNReactNativeDocViewer (from `../node_modules/react-native-doc-viewer`)
+  - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
+
+SPEC REPOS:
+  trunk:
+    - boost-for-react-native
+    - Bugly
+    - mobile-ffmpeg-min
+
+EXTERNAL SOURCES:
+  CodePush:
+    :path: "../node_modules/react-native-code-push"
+  DoubleConversion:
+    :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
+  Folly:
+    :podspec: "../node_modules/react-native/third-party-podspecs/Folly.podspec"
+  glog:
+    :podspec: "../node_modules/react-native/third-party-podspecs/glog.podspec"
+  JCoreRN:
+    :path: "../node_modules/jcore-react-native"
+  JPushRN:
+    :path: "../node_modules/jpush-react-native"
+  React:
+    :path: "../node_modules/react-native"
+  react-native-baidu-map:
+    :path: "../node_modules/react-native-baidu-map"
+  react-native-ffmpeg:
+    :podspec: "../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec"
+  react-native-image-picker:
+    :path: "../node_modules/react-native-image-picker"
+  react-native-orientation:
+    :path: "../node_modules/react-native-orientation"
+  react-native-video:
+    :path: "../node_modules/react-native-video"
+  RNDeviceInfo:
+    :path: "../node_modules/react-native-device-info"
+  RNFS:
+    :path: "../node_modules/react-native-fs"
+  RNI18n:
+    :path: "../node_modules/react-native-i18n"
+  RNReactNativeDocViewer:
+    :path: "../node_modules/react-native-doc-viewer"
+  yoga:
+    :path: "../node_modules/react-native/ReactCommon/yoga"
+
+SPEC CHECKSUMS:
+  boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
+  Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
+  CodePush: 55a4a99cb0bb45d90fa7858e5c0eafb0812c4d8a
+  DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
+  Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
+  glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
+  JCoreRN: 29e55beacaedf2c3727d2f99759dbc8423756cfa
+  JPushRN: 25a30fdc14da18e39271f6ac7d98366c81e62d19
+  mobile-ffmpeg-min: 05ebe3998721155274ae50466b5223d3637a92ab
+  React: 87c335031fbd15d6fc74b66769ab8954cda78de7
+  react-native-baidu-map: 744effd0fc162396aaadd14288b39f463defb0d4
+  react-native-ffmpeg: 6fff131b518706f0672d25784f11399c06a45f08
+  react-native-image-picker: 2e76e639e139a4bb47ae18801d32b5bfcf3e37f0
+  react-native-orientation: d4a97266b06ec8d45d74e626656a730ebbebbb6f
+  react-native-video: f53aaec69bdf607dc5250d0887b8c1f3be9e4b24
+  RNDeviceInfo: 17bd6ed6c8c230f5da87d53f6275a520005f0914
+  RNFS: 422c45bbeb7efc41e9d39fbfaa8a533f94cd3e45
+  RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
+  RNReactNativeDocViewer: 571c6ac38483531b8fb521d02a6ba54652ed10a7
+  yoga: b578c01c0c9df91b5d4f0a8e9dba1f298f2fbf10
+
+PODFILE CHECKSUM: 61ebe8a01262c88ca4e98d766e7b1d19302f2479
+
+COCOAPODS: 1.8.4

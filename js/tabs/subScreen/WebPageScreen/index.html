@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+    body, html {width: 100%;height: 100%; margin:0;font-family:"微软雅黑";}
+     #allmap{height:100%;width:100%;}
+    /*#r-result,#r-result table{width:100%;}
+    .navtrans-view{display: none} */
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=eYf9sA6yVTFHlh9ytU4a0EYY"></script>
+<title>路径规划</title>
+</head>
+<body>
+<div id="allmap"></div>
+<!-- <div id="r-result"></div> -->
+</body>
+</html>
+<script type="text/javascript">
+function init(data){
+    // 百度地图API功能
+    console.log(data);
+    alert(JSON.stringify(data));
+    var map = new BMap.Map("allmap");
+    var center = new BMap.Point(data.start.long,data.start.lat)
+    map.centerAndZoom(center, 11);
+    map.enableScrollWheelZoom(true);
+    var p1 = new BMap.Point(data.start.long,data.start.lat);
+    var p2 = new BMap.Point(data.end.long,data.end.lat);
+    const waypoints = [];
+    data.waypoints.forEach(point => {
+        let p = new BMap.Point(point.long, point.lat);
+        waypoints.push(p);
+    })
+
+    var driving = new BMap.DrivingRoute(map, {renderOptions:{map: map, autoViewport: true}});
+    driving.search(p1, p2,{waypoints:waypoints});//waypoints表示途经点
+
+    // var polyline = new BMap.Polyline([
+    // new BMap.Point(116.399, 39.910),
+    // new BMap.Point(116.405, 39.920),
+    // p1,
+    // ],
+    // {strokeColor:"blue", strokeWeight:6, strokeOpacity:0.5}
+    // );
+    // map.addOverlay(polyline);
+
+    // //添加自定义标注
+    // var marker = new BMap.Marker(p1);        // 创建标注    
+    // var label = new BMap.Label('自定义');
+    // label.setStyle({color: 'red', fontSize:'16px', border:'1px solid white', paddingLeft: '20px'})
+    // marker.setLabel(label);
+    // map.addOverlay(marker);
+
+    //  //添加自定义标注
+    //  var marker2 = new BMap.Marker(p2);        // 创建标注    
+    // var label2 = new BMap.Label('自定义2');
+    // label2.setStyle({color: 'red', fontSize:'16px', border:'1px solid white', paddingLeft: '20px'})
+    // marker2.setLabel(label2);
+    // map.addOverlay(marker2);
+}
+
+</script>

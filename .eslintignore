@@ -1,0 +1,4 @@
+/android/*
+/ios/*
+js/utils/util.js
+# /__tests__/*

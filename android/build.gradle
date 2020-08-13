@@ -1,0 +1,64 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    // https://chinagdg.org/2016/01/picking-your-compilesdkversion-minsdkversion-targetsdkversion/
+     ext {
+         buildToolsVersion = "27.0.3" // should use 27.0.3 because of gradle plugin 3.1.3
+         minSdkVersion = 23
+         compileSdkVersion = 27
+         targetSdkVersion = 27
+         supportLibVersion = "23.0.1"
+         reactNativeFFmpegPackage = "min-lts" // 指定 ffmpeg 版本包，lts 能够支持到 minSdkVersion 16, 比 min 打包大了 5M。（非 lts 要求 24 及以上）
+     }
+
+    repositories {
+        // if you have something wrong with your network, please use ali maven instead.
+        // maven{ url 'https://maven.aliyun.com/repository/google' }
+        // maven{ url 'https://maven.aliyun.com/repository/jcenter'}
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.1.3'
+        classpath 'de.undercouch:gradle-download-task:3.1.2'
+    }
+}
+
+allprojects {
+    repositories {
+        mavenLocal()
+        // if you have something wrong with your network, please use ali maven instead.
+        // maven{ url 'https://maven.aliyun.com/repository/google' }
+        // maven{ url 'https://maven.aliyun.com/repository/jcenter'}
+        google()
+        jcenter()
+        maven {
+            url "$rootDir/../node_modules/react-native/android"
+        }
+        maven { url "https://jitpack.io" }
+    }
+}
+
+subprojects { // 有些依赖库在 3.x 的 gradle 下会在运行时指定 28.0.0 的支持库
+    project.configurations.all {
+        resolutionStrategy.eachDependency { details ->
+          if (details.requested.group == 'com.android.support'
+                && !details.requested.name.contains('multidex') ) {
+            details.useVersion "23.0.1"
+          }
+        }
+    }
+    afterEvaluate {project ->
+        if (project.hasProperty("android")) {
+            android {
+                compileSdkVersion 27
+                buildToolsVersion "27.0.3"
+            }
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.4'
+    distributionUrl = distributionUrl.replace("bin", "all")
+}

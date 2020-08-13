@@ -1,0 +1,14 @@
+{
+  "presets": ["module:metro-react-native-babel-preset", "@babel/preset-flow"],
+  "retainLines": true,
+  "plugins": [
+    ["@babel/plugin-proposal-decorators", { "legacy": true }],
+    "@babel/plugin-transform-flow-strip-types",
+    ["@babel/plugin-proposal-class-properties", { "loose": true }]
+  ],
+  "env": {
+    "production": {
+      "plugins": ["transform-remove-console"]
+    }
+  }
+}

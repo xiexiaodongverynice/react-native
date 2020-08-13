@@ -1,0 +1,704 @@
+{
+  "api_name": "home_config",
+  "title_config":{
+    "type":"text", // text: 文本， image：图片，需要给value赋值图片的url
+    "name":"首页",
+    "value":"首页",
+    "version":0,
+    "title_style":{
+
+    }
+  },
+  "extenders_config": [
+    {
+      "extender_type": "component",
+      "content": {
+        "name":"轮播图",
+        "height":200,
+        "api_name":"carousel", // carousel 轮播图跑马灯，belt: 一行九宫格
+        "display_items":[
+          {
+            "name":""
+          }
+        ]
+      },
+      "show_in_devices":["cellphone"]
+    },
+    {
+      "extender_type": "component",
+      "content": {
+        "name":"belt",
+        "height":200,
+        "api_name":"belt", // carousel 轮播图跑马灯，belt: 一行九宫格
+        "display_items":[
+          {
+            "api_name":"customer",
+            "display_name":"医生",
+            "icon":"customer",
+            "joiner": "and",
+            "hidden_expression": "return fc_getProfile().api_name !== 'my_procurement_01_profile'",
+            "extra_query_condition": [],
+            "critirias": [
+              {
+                "field": "record_type",
+                "operator": "in",
+                "value": ["hcp"]
+              }
+            ]
+          },
+          {
+            "api_name":"schedule",
+            "display_name":"日程",
+            "icon":"schedule",
+            "joiner": "and",
+            "hidden_expression": "return fc_getProfile().api_name !== 'my_procurement_01_profile'",
+            "extra_query_condition": [],
+            "critirias": [
+            ]
+          },
+          {
+            "api_name":"call",
+            "display_name":"拜访",
+            "icon":"call",
+            "joiner": "and",
+            "hidden_expression": "return fc_getProfile().api_name !== 'my_procurement_01_profile'",
+            "extra_query_condition": [],
+            "critirias": [
+              {
+                "field":"record_type",
+                "operator":"in",
+                "value":[
+                  "report",
+                  "plan"
+                ]
+              }
+            ]
+          },
+          {
+            "api_name":"call",
+            "display_name":"协访",
+            "icon":"coach",
+            "joiner": "and",
+            "hidden_expression": "return fc_getProfile().api_name !== 'my_procurement_01_profile'",
+            "extra_query_condition": [],
+            "critirias": [
+              {
+                "field":"record_type",
+                "operator":"in",
+                "value":[
+                  "coach"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "show_in_devices":["cellphone"]
+    },
+    {
+      "extender_type": "objects",
+      "content": {
+        "api_name": "show_objects",
+        "name":"对象",
+        "style": "tabs", // tabs 表示以tab的方式展示； list 表示以一列的方式展示;
+        "orientation_devices": {
+          "tablet": "horizontal",
+          "cellphone": "portrait",
+          "web": "horizontal"
+        },
+        "display_items": [
+          {
+            "name": "我的待办",
+            "show_in_devices": [],
+            "display_style": "object_list",
+            "column": {
+              "tablet": 2,
+              "cellphone": 1,
+              "web": 3
+            },
+            "ref_objects": [
+              {
+                "api_name": "my_event",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name !== 'my_procurement_01_profile'",
+                "extra_query_condition": [],
+                "critirias": [
+                  {
+                    "field": "status",
+                    "operator": "in",
+                    "value": ["proc_processed"]
+                  }
+                ],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "活动",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "待审批",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_event",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name !== 'my_procurement_02_profile'",
+                "extra_query_condition": [],
+                "critirias": [
+                  {
+                    "field": "status",
+                    "operator": "in",
+                    "value": ["proc_inquiry_sent", "proc_price_compare"]
+                  }
+                ],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "活动",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "待审批",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_event",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name !== 'my_procurement_03_profile'",
+                "extra_query_condition": [],
+                "critirias": [
+                  {
+                    "field": "status",
+                    "operator": "in",
+                    "value": ["proc_director_approval"]
+                  }
+                ],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "活动",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "待审批",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_event",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name === 'my_procurement_01_profile' && fc_getProfile().api_name === 'my_procurement_02_profile' && fc_getProfile().api_name === 'my_procurement_03_profile'",
+                "extra_query_condition": [],
+                "critirias": [
+                  {
+                    "field": "status",
+                    "operator": "==",
+                    "value": ["proc_vendor_chosen"]
+                  },
+                  {
+                    "field": "create_by",
+                    "operator": "==",
+                    "value": {
+                      "type": "js",
+                      "expression": "return FC_CRM_USERID"
+                    }
+                  }
+                ],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "活动",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "合同上传",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_event",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name === 'my_procurement_01_profile' && fc_getProfile().api_name === 'my_procurement_02_profile' && fc_getProfile().api_name === 'my_procurement_03_profile'",
+                "extra_query_condition": [
+                  {
+                    "name": "approvalCriterias",
+                    "value": [
+                      {
+                        "field": "candidate_operators",
+                        "value": {
+                          "type": "js",
+                          "expression": "return FC_CRM_USERID"
+                        },
+                        "operator": "contains"
+                      },
+                      { "field": "status", "value": ["waiting"], "operator": "==" },
+                      {
+                        "field": "approval_flow__r.status",
+                        "value": ["in_progress"],
+                        "operator": "in"
+                      }
+                    ]
+                  }
+                ],
+                "critirias": [],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "活动",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "待审批",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_vendor_approval",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name === 'my_procurement_01_profile' && fc_getProfile().api_name === 'my_procurement_02_profile' && fc_getProfile().api_name === 'my_procurement_03_profile'",
+                "extra_query_condition": [
+                  {
+                    "name": "approvalCriterias",
+                    "value": [
+                      {
+                        "field": "candidate_operators",
+                        "value": {
+                          "type": "js",
+                          "expression": "return FC_CRM_USERID"
+                        },
+                        "operator": "contains"
+                      },
+                      { "field": "status", "value": ["waiting"], "operator": "==" },
+                      {
+                        "field": "approval_flow__r.status",
+                        "value": ["in_progress"],
+                        "operator": "in"
+                      }
+                    ]
+                  }
+                ],
+                "critirias": [],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "供应商服务",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "待审批",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_vendor_approval",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name === 'my_procurement_01_profile' && fc_getProfile().api_name === 'my_procurement_02_profile' && fc_getProfile().api_name === 'my_procurement_03_profile'",
+                "extra_query_condition": [],
+                "critirias": [
+                  {
+                    "field": "status",
+                    "operator": "==",
+                    "value": ["proc_vendor_chosen"]
+                  },
+                  {
+                    "field": "create_by",
+                    "operator": "==",
+                    "value": {
+                      "type": "js",
+                      "expression": "return FC_CRM_USERID"
+                    }
+                  }
+                ],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "供应商服务",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "合同上传",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_promo_materials",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name === 'my_procurement_01_profile' && fc_getProfile().api_name === 'my_procurement_02_profile' && fc_getProfile().api_name === 'my_procurement_03_profile'",
+                "extra_query_condition": [
+                  {
+                    "name": "approvalCriterias",
+                    "value": [
+                      {
+                        "field": "candidate_operators",
+                        "value": {
+                          "type": "js",
+                          "expression": "return FC_CRM_USERID"
+                        },
+                        "operator": "contains"
+                      },
+                      { "field": "status", "value": ["waiting"], "operator": "==" },
+                      {
+                        "field": "approval_flow__r.status",
+                        "value": ["in_progress"],
+                        "operator": "in"
+                      }
+                    ]
+                  }
+                ],
+                "critirias": [],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "推广资料",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "待审批",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              },
+              {
+                "api_name": "my_event_speaker",
+                "joiner": "and",
+                "hidden_expression": "return fc_getProfile().api_name === 'my_procurement_01_profile' && fc_getProfile().api_name === 'my_procurement_02_profile' && fc_getProfile().api_name === 'my_procurement_03_profile'",
+                "extra_query_condition": [
+                  {
+                    "name": "approvalCriterias",
+                    "value": [
+                      {
+                        "field": "candidate_operators",
+                        "value": {
+                          "type": "js",
+                          "expression": "return FC_CRM_USERID"
+                        },
+                        "operator": "contains"
+                      },
+                      { "field": "status", "value": ["waiting"], "operator": "==" },
+                      {
+                        "field": "approval_flow__r.status",
+                        "value": ["in_progress"],
+                        "operator": "in"
+                      }
+                    ]
+                  }
+                ],
+                "critirias": [],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "讲者",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "待审批",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "我的日程",
+            "show_in_devices": [],
+            "display_style": "object_list",
+            "column": {
+              "tablet": 2,
+              "cellphone": 1,
+              "web": 3
+            },
+            "ref_objects": [
+              {
+                "api_name": "my_event",
+                "joiner": "and",
+                "extra_query_condition": [],
+                "critirias": [
+                  {
+                    "field": "status",
+                    "operator": "in",
+                    "value": ["application_approved", "hx_approved"]
+                  },
+                  {
+                    "field": "create_by",
+                    "operator": "==",
+                    "value": {
+                      "type": "js",
+                      "expression": "return FC_CRM_USERID"
+                    }
+                  },
+                  {
+                    "field": "my_time_begin",
+                    "operator": ">",
+                    "value": {
+                      "type": "js",
+                      "expression": "return new Date().setHours(0, 0, 0, 0)"
+                    }
+                  },
+                  {
+                    "field": "my_time_begin",
+                    "operator": "<",
+                    "value": {
+                      "type": "js",
+                      "expression": "return new Date().setHours(24, 0, 0, 0)"
+                    }
+                  }
+                ],
+                "render_style": {
+                  "tag": {
+                    "field_type": "custom",
+                    "name": "活动",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "name": "公告",
+            "display_style": "object_detail",
+            "show_in_devices": ["tablet", "web"],
+            "column": {
+              "tablet": 2,
+              "cellphone": 1,
+              "web": 3
+            },
+            "ref_objects": [
+              {
+                "api_name": "notice",
+                "joiner": "and",
+                "order_by": "publish_date",
+                "order": "desc",
+                "criterias": [
+                  {
+                    "field": "profiles",
+                    "operator": "contains",
+                    "value": ["$$CurrentProfileId$$"]
+                  },
+                  {
+                    "field": "expire_date",
+                    "operator": ">",
+                    "value": {
+                      "type": "js",
+                      "expression": "return new Date().getTime()"
+                    }
+                  }
+                ],
+                "render_style": {
+                  "tag": {
+                    "field_type": "system",
+                    "field": "priority",
+                    "color": "blank",
+                    "background_color": "red"
+                  },
+                  "content": [
+                    {
+                      "field_type": "system",
+                      "field": "name",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "bolder"
+                    }
+                  ],
+                  "end": [
+                    {
+                      "field_type": "custom",
+                      "name": "",
+                      "font_size": 14,
+                      "color": "blank",
+                      "font_weight": "normal"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "show_in_devices":["tablet", "web", "cellphone"]
+    },
+    {
+      "extender_type": "web", // web： 加载网站的方式，component 以组件的方式，objects 以对象的形式
+      "content": {
+        "api_name":"report",
+        "display_items":[],
+        "name":"百度",
+        "ref_url":"wwww.baidu.com",
+        "params": [
+          {
+            "name": "profile",
+            "type": "js",
+            "value": "return xxxx"
+          },
+          {
+            "name": "token",
+            "value": ""
+          }
+        ]
+      },
+      "show_in_devices":["cellphone"]
+    }
+  ]
+}
